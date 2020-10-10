@@ -93,6 +93,12 @@ public class MyLinkedList<K> {
 		return tempNode;
 	}
 
+	// Function to search node with given key and then insert new node after
+	public void insertAfterKey(K key, INode<K> newNode) {
+		INode<K> tempNode = search(key);
+		insert(tempNode, newNode);
+	}
+
 	// Function to print Linked List
 	public void printLinkedList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");

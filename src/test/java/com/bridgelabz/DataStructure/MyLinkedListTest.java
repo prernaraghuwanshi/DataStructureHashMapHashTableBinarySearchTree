@@ -95,4 +95,22 @@ public class MyLinkedListTest {
 		assertEquals(mySecondNode, tempNode);
 	}
 
+	@Test
+	public void given3Numbers_whenInsertingBySearchingKey_shouldPassLinkedListCriteria() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList<Integer> linkedList = new MyLinkedList<Integer>();
+		linkedList.append(myFirstNode);
+		linkedList.append(mySecondNode);
+		linkedList.append(myThirdNode);
+		MyNode<Integer> myNewNode = new MyNode<>(40);
+		linkedList.insertAfterKey(30, myNewNode);
+		linkedList.printLinkedList();
+		boolean result = linkedList.getHead().equals(myFirstNode) && linkedList.getHead().getNext().equals(mySecondNode)
+				&& linkedList.getHead().getNext().getNext().equals(myNewNode)
+				&& linkedList.getTail().equals(myThirdNode);
+		assertTrue(result);
+	}
+
 }
