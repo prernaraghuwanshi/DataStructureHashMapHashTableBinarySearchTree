@@ -1,12 +1,12 @@
 package com.bridgelabz.DataStructure;
 
-public class MyNode<K> {
+public class MyNode<K> implements INode<K> {
 	private K key;
-	private MyNode next;
+	private INode<K> next;
 
 	// Constructor
 	public MyNode(K key) {
-		this.key = null;
+		this.key = key;
 		this.next = null;
 	}
 
@@ -21,12 +21,12 @@ public class MyNode<K> {
 	}
 
 	// Getter for Next
-	public MyNode getNext() {
+	public INode<K> getNext() {
 		return next;
 	}
 
 	// Setter for Next
-	public void setNext(MyNode next) {
+	public void setNext(INode<K> next) {
 		this.next = next;
 	}
 }
