@@ -58,6 +58,13 @@ public class MyLinkedList<K> {
 
 	}
 
+	// Function to insert node in between 2 nodes
+	public void insert(INode<K> firstNode, INode<K> newNode) {
+		INode<K> tempNode = firstNode.getNext();
+		firstNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
+
 	// Function to print Linked List
 	public void printLinkedList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");
