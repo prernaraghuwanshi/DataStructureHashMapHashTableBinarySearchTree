@@ -72,6 +72,18 @@ public class MyLinkedList<K> {
 		return tempNode;
 	}
 
+	// Function to delete last element
+	public INode<K> popLast() {
+		INode<K> tempNode = this.head;
+		while (!tempNode.getNext().equals(tail)) {
+			tempNode = tempNode.getNext();
+		}
+		this.tail = tempNode;
+		tempNode = tempNode.getNext();
+		tail.setNext(null);
+		return tempNode;
+	}
+
 	// Function to print Linked List
 	public void printLinkedList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");
