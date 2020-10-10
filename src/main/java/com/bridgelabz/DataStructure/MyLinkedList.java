@@ -4,18 +4,22 @@ public class MyLinkedList<K> {
 	private INode<K> head;
 	private INode<K> tail;
 
+	// Getter for Head
 	public INode<K> getHead() {
 		return head;
 	}
 
+	// Setter for Head
 	public void setHead(INode<K> head) {
 		this.head = head;
 	}
 
+	// Getter for Tail
 	public INode<K> getTail() {
 		return tail;
 	}
 
+	// Setter for Tail
 	public void setTail(INode<K> tail) {
 		this.tail = tail;
 	}
@@ -26,7 +30,7 @@ public class MyLinkedList<K> {
 		this.tail = null;
 	}
 
-	// Function to add node to Linked List
+	// Function to add node to Linked List (Add is at head)
 	public void add(INode<K> newNode) {
 		if (this.tail == null) {
 			this.tail = newNode;
@@ -38,6 +42,20 @@ public class MyLinkedList<K> {
 			this.head = newNode;
 			this.head.setNext(tempNode);
 		}
+	}
+
+	// Function to append node to Linked List (Append is at tail)
+	public void append(INode<K> newNode) {
+		if (this.tail == null) {
+			this.tail = newNode;
+		}
+		if (this.head == null) {
+			this.head = newNode;
+		} else {
+			this.tail.setNext(newNode);
+			this.tail = newNode;
+		}
+
 	}
 
 	// Function to print Linked List
