@@ -3,6 +3,7 @@ package com.bridgelabz.DataStructure;
 public class MyLinkedList<K> {
 	private INode<K> head;
 	private INode<K> tail;
+	private int size;
 
 	// Getter for Head
 	public INode<K> getHead() {
@@ -26,6 +27,7 @@ public class MyLinkedList<K> {
 
 	// Constructor
 	public MyLinkedList() {
+		this.size = 0;
 		this.head = null;
 		this.tail = null;
 	}
@@ -42,6 +44,7 @@ public class MyLinkedList<K> {
 			this.head = newNode;
 			this.head.setNext(tempNode);
 		}
+		this.size += 1;
 	}
 
 	// Function to append node to Linked List (Append is at tail)
@@ -55,7 +58,7 @@ public class MyLinkedList<K> {
 			this.tail.setNext(newNode);
 			this.tail = newNode;
 		}
-
+		this.size += 1;
 	}
 
 	// Function to insert node in between 2 nodes
@@ -63,12 +66,14 @@ public class MyLinkedList<K> {
 		INode<K> tempNode = firstNode.getNext();
 		firstNode.setNext(newNode);
 		newNode.setNext(tempNode);
+		this.size += 1;
 	}
 
 	// Function to delete first element
 	public INode<K> pop() {
 		INode<K> tempNode = this.head;
 		this.head = head.getNext();
+		this.size -= 1;
 		return tempNode;
 	}
 
@@ -81,6 +86,7 @@ public class MyLinkedList<K> {
 		this.tail = tempNode;
 		tempNode = tempNode.getNext();
 		tail.setNext(null);
+		this.size -= 1;
 		return tempNode;
 	}
 
@@ -99,6 +105,23 @@ public class MyLinkedList<K> {
 		insert(tempNode, newNode);
 	}
 
+	// Function to delete node given its key
+	public INode<K> delete(K key) {
+		INode<K> deleteNode = search(key);
+		INode<K> tempNode = this.head;
+		while (!tempNode.getNext().equals(deleteNode)) {
+			tempNode = tempNode.getNext();
+		}
+		tempNode.setNext(deleteNode.getNext());
+		this.size -= 1;
+		return deleteNode;
+	}
+
+	// Function to find size of linked list
+	public int size() {
+		return this.size;
+	}
+
 	// Function to print Linked List
 	public void printLinkedList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");
@@ -112,5 +135,6 @@ public class MyLinkedList<K> {
 		}
 		myNodes.append(tempNode.getKey());
 		System.out.println(myNodes);
+		System.out.println("Size: " + size());
 	}
 }
