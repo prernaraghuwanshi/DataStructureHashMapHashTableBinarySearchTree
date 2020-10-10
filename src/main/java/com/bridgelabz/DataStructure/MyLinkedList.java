@@ -84,6 +84,15 @@ public class MyLinkedList<K> {
 		return tempNode;
 	}
 
+	// Function to search node given key
+	public INode<K> search(K key) {
+		INode<K> tempNode = this.head;
+		while (!tempNode.getKey().equals(key)) {
+			tempNode = tempNode.getNext();
+		}
+		return tempNode;
+	}
+
 	// Function to print Linked List
 	public void printLinkedList() {
 		StringBuffer myNodes = new StringBuffer("My Nodes: ");

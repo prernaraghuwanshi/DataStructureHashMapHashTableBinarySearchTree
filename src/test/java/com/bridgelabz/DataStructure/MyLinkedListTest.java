@@ -1,5 +1,6 @@
 package com.bridgelabz.DataStructure;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -79,6 +80,19 @@ public class MyLinkedListTest {
 		linkedList.printLinkedList();
 		boolean result = linkedList.getHead().equals(myFirstNode) && linkedList.getTail().equals(mySecondNode);
 		assertTrue(result);
+	}
+
+	@Test
+	public void given3Numbers_whenSearchedFor30_shouldReturnSecondNode() {
+		MyNode<Integer> myFirstNode = new MyNode<>(56);
+		MyNode<Integer> mySecondNode = new MyNode<>(30);
+		MyNode<Integer> myThirdNode = new MyNode<>(70);
+		MyLinkedList<Integer> linkedList = new MyLinkedList<Integer>();
+		linkedList.append(myFirstNode);
+		linkedList.append(myThirdNode);
+		linkedList.insert(myFirstNode, mySecondNode);
+		INode<Integer> tempNode = linkedList.search(30);
+		assertEquals(mySecondNode, tempNode);
 	}
 
 }
