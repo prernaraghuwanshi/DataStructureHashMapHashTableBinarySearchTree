@@ -13,6 +13,21 @@ public class Stack<K> {
 		linkedList.add(newNode);
 	}
 
+	// Peek stack
+	public INode<K> peek() {
+		return linkedList.getHead();
+	}
+
+	// Pop from stack
+	public INode<K> pop() {
+		if (linkedList.size() > 0)
+			return linkedList.pop();
+		else {
+			System.out.println("Stack is empty!");
+			return null;
+		}
+	}
+
 	// Display Stack
 	public void viewStack() {
 		linkedList.printLinkedList();
