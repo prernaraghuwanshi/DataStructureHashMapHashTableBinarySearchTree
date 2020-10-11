@@ -13,6 +13,11 @@ public class Queue<K> {
 		linkedList.append(newNode);
 	}
 
+	// Dequeue operation
+	public INode<K> dequeue() {
+		return linkedList.pop();
+	}
+
 	// Display Queue
 	public void viewQueue() {
 		linkedList.printLinkedList();
