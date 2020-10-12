@@ -16,7 +16,7 @@ public class HashMap<K, V> {
 
 	// Add key-value pair
 	public void add(K key, V value) {
-		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) this.myLinkedList.search(key);
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
 		if (myMapNode == null) {
 			myMapNode = new MyMapNode<K, V>(key, value);
 			myLinkedList.append(myMapNode);
