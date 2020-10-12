@@ -92,11 +92,16 @@ public class MyLinkedList<K> {
 
 	// Function to search node given key
 	public INode<K> search(K key) {
-		INode<K> tempNode = this.head;
-		while (!tempNode.getKey().equals(key)) {
+		INode<K> myNode = null;
+		INode<K> tempNode = head;
+		while (tempNode != null) {
+			if (tempNode.getKey().equals(key)) {
+				myNode = tempNode;
+				break;
+			}
 			tempNode = tempNode.getNext();
 		}
-		return tempNode;
+		return myNode;
 	}
 
 	// Function to search node with given key and then insert new node after

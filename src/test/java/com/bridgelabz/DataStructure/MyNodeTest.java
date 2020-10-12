@@ -4,10 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.bridgelabz.DataStructure.MyNode;
-
-import junit.framework.Assert;
-
 public class MyNodeTest {
 	@Test
 	public void givenThreeNumbers_whenLinked_shouldPassedLinkedListTest() {
