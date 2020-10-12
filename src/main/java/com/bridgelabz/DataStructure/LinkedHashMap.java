@@ -47,4 +47,17 @@ public class LinkedHashMap<K, V> {
 			myMapNode.setValue(value);
 		}
 	}
+
+	// Remove key-value pair for a given key
+	public V remove(K key) {
+		int index = getBucketIndex(key);
+		MyLinkedList<K> myLinkedList = myBucketArray.get(index);
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) myLinkedList.search(key);
+		if (myMapNode != null) {
+			V deletedValue = myMapNode.getValue();
+			myLinkedList.delete(key);
+			return deletedValue;
+		} else
+			return null;
+	}
 }
