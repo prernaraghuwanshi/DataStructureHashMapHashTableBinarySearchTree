@@ -14,26 +14,21 @@ public class MyMapNode<K, V> implements INode<K> {
 
 	@Override
 	public K getKey() {
-		// TODO Auto-generated method stub
 		return key;
 	}
 
 	@Override
 	public void setKey(K key) {
-		// TODO Auto-generated method stub
 		this.key = key;
 	}
 
 	@Override
 	public INode<K> getNext() {
-		// TODO Auto-generated method stub
 		return this.next;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void setNext(INode<K> next) {
-		// TODO Auto-generated method stub
 		this.next = (MyMapNode<K, V>) next;
 	}
 
